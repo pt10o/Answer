@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-    <title>ここに難易度表の名前</title>
+    <title>正解</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,10 +27,10 @@
     <div class="container">
 
         <div class="alert alert-success mb-3" role="alert">
-            <p>ここに難易度表の説明文。次期難易度表フォーマット対応。</p>
+            <p>内輪用。練習にいい感じの譜面まとめ。次期難易度表フォーマット対応。</p>
             <p>難易度表の読み込みと表示に数秒かかります。</p>
             <hr>
-            <p class="mb-0">説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文</p>
+            <p class="mb-0">難易度目安 @-0=sl0 @0=st0 基本的にはイージー基準 ハード難易度は多少考慮</p>
         </div>
 
 
@@ -55,13 +55,13 @@
                 var obj = $("#table_int");
 
                 obj.html("");
-                $("<thead class='table-dark'><tr><th>Level</th><th>Title</th><th>Artist</th><th>Comment</th></tr></thead><tbody>")
+                $("<thead class='table-dark'><tr><th>Level</th><th>Title</th><th>Artist</th><th>BPM</th><th>Notes</th><th>T/N</th><th>Comment</th></tr></thead><tbody>")
                     .appendTo(obj);
                 var obj_sep = null;
                 for (var i = 0; i < info.length; i++) {
                     if (x != info[i].level) {
                         if (obj_sep != null) {
-                            obj_sep.html("<td colspan='4'>" + "<b>" + mark + x + " (" + count +
+                            obj_sep.html("<td colspan='7'>" + "<b>" + mark + x + " (" + count +
                                 "譜面)</b></td>");
                         }
                         obj_sep = $("<tr class='table-dark' style='text-align:center' id='" + mark + info[i].level +
@@ -77,16 +77,25 @@
                     $("<td width='5%'>" + mark + x + "</td>").appendTo(str);
 
                     // Title
-                    $("<td width='45%'>" +
+                    $("<td width='35%'>" +
                         "<a href='http://www.dream-pro.info/~lavalse/LR2IR/search.cgi?mode=ranking&bmsmd5=" + info[
                             i]
                         .md5 + "' target='_blank'>" + info[i].title + "</a></td>").appendTo(str);
 
                     // Artist
-                    $("<td width='40%'>" + info[i].artist + "</td>").appendTo(str);
+                    $("<td width='20%'>" + info[i].artist + "</td>").appendTo(str);
+
+                    // BPM
+                    $("<td width='5%'>" + info[i].BPM + "</td>").appendTo(str);
+
+                    // Notes
+                    $("<td width='5%'>" + info[i].Notes + "</td>").appendTo(str);
+
+                    // T/N
+                    $("<td width='5%'>" + info[i].T/N + "</td>").appendTo(str);
 
                     // Comment
-                    $("<td width='10%'>" + info[i].comment + "</td>").appendTo(str);
+                    $("<td width='25%'>" + info[i].comment + "</td>").appendTo(str);
                     str.appendTo(obj);
                     count++;
 
@@ -94,7 +103,7 @@
                 $("</tbody>").appendTo(obj);
 
                 if (obj_sep != null) {
-                    obj_sep.html("<td class='table-dark' style='text-align:center' colspan='4'>" + "<b>" + mark + x +
+                    obj_sep.html("<td class='table-dark' style='text-align:center' colspan='7'>" + "<b>" + mark + x +
                         " (" + count + "譜面)</b></td>");
                 }
             }
