@@ -61,15 +61,7 @@
                     .appendTo(obj);
                 var obj_sep = null;
                 
-                for (var i = 0; i < info.length; i++) {
-                    if (x != info[i].level) {
-                        obj_sep = $("<tr style='text-align:center' id='" + mark + info[i].level +
-                            "'></tr>");
-                        obj_sep.appendTo(obj);
-                        count = 0;
-                        x = info[i].level;
-                    }
-                    var str = $("<tr></tr>");
+
 
                     // Level
                     $("<td width='5%'>" + mark + x + "</td>").appendTo(str);
