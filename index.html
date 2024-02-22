@@ -57,19 +57,22 @@
                 var obj = $("#table_int");
 
                 obj.html("");
-                $("<thead class='table-dark'><tr><th>Level</th><th>Title</th><th>Artist</th><th>Video</th><th>ChartView</th><th>Comment</th></tr></thead><tbody>")
+                $("<thead class='table-dark'><tr><th>Level</th><th>Title</th><th>SongArtist</th><th>Charter</th></tr></thead><tbody>")
                     .appendTo(obj);
                 var obj_sep = null;
-
-
                 for (var i = 0; i < info.length; i++) {
                     if (x != info[i].level) {
-                        obj_sep = $("<tr style='text-align:center' id='" + mark + info[i].level +
+                        if (obj_sep != null) {
+                            obj_sep.html("<td colspan='4'>" + "<b>" + mark + x + " (" + count +
+                                "譜面)</b></td>");
+                        }
+                        obj_sep = $("<tr class='table-dark' style='text-align:center' id='" + mark + info[i].level +
                             "'></tr>");
                         obj_sep.appendTo(obj);
                         count = 0;
                         x = info[i].level;
                     }
+
                     var str = $("<tr></tr>");
 
 
