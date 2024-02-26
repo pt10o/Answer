@@ -38,7 +38,7 @@
 
         <!--ここから難易度表本体-->
         <div>
-            <table class="table table-light table-striped table-hover" id="table_int">
+            <table class="table table-light table-striped table-hover table-sm" id="table_int">
             </table>
         </div>
         <script language="javascript" type="text/javascript">
@@ -93,10 +93,10 @@
                     $("<td width='5%'>" + info[i].BPM+ "</td>").appendTo(str);
 
                     // Notes
-                    $("<td width='10%'>" + info[i].Notes + "</td>").appendTo(str);
+                    $("<td width='7%'>" + info[i].Notes + "</td>").appendTo(str);
 
                     // Comment
-                    $("<td width='25%'>" + info[i].comment + "</td>").appendTo(str);
+                    $("<td width='28%'>" + info[i].comment + "</td>").appendTo(str);
                     str.appendTo(obj);
                     count++;
 
